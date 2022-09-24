@@ -33,45 +33,161 @@
                 My Weather
             </a>
 
-            <a class="navbar-brand" href="#">
-                <img src="images/favoriteNH.png" class="favorite" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
-            </a>
+                <a class="navbar-brand" href="#">
+                    <img src="images/favoriteNH.png" class="favorite" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
+                </a>
         </div>
     </nav>
 
     <!-- Main Section -->
-    <main>
+    <main class="d-flex flex-column min-vh-100">
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">My Weather</h1>
-                    <p class="lead text-muted">Enter your city name to get the weather</p>
+                    <h1 class="fw-light text-white">My Weather</h1>
+                    <p class="lead lessWhite">Enter your city name to get the weather</p>
                     <input type="text" class="form-control" placeholder="Enter your city name" aria-label="Enter your city name" >
                 </div>
             </div>
         </section>
 
         <section class="py-5 container">
-            <h2 class="fw-light">All Cities</h2>
-            <hr>
+            <h2 class="fw-light text-white">All Cities</h2>
+            <hr class="text-white">
+            <!-- City 1 and 2 -->
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <div class="row centerVertical">
+                                <div class="col-3">
+                                    <h5 class="card-title" id="city1">City</h5>
+                                </div>
+                                <div class="col-3">
+                                    <img src="http://openweathermap.org/img/wn/10d.png" id="icon1" alt="weather">
+                                </div>
+                                <div class="col-3">
+                                    <p class="card-text" id="temprature1">Temperature</p>
+                                </div>
+                                <div class="col-3">
+                                    <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row centerVertical">
+                                <div class="col-3">
+                                    <h5 class="card-title" id="city2">City</h5>
+                                </div>
+                                <div class="col-3">
+                                    <img src="http://openweathermap.org/img/wn/10d.png" id="icon2" alt="weather">
+                                </div>
+                                <div class="col-3">
+                                    <p class="card-text" id="temprature2">Temperature</p>
+                                </div>
+                                <div class="col-3">
+                                    <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-        </section>
+            <!-- City 3 and 4 -->
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row centerVertical">
+                                <div class="col-3">
+                                    <h5 class="card-title" id="city3">City</h5>
+                                </div>
+                                <div class="col-3">
+                                    <img src="http://openweathermap.org/img/wn/10d.png" id="icon3" alt="weather">
+                                </div>
+                                <div class="col-3">
+                                    <p class="card-text" id="temprature3">Temperature</p>
+                                </div>
+                                <div class="col-3">
+                                    <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row centerVertical">
+                                <div class="col-3">
+                                    <h5 class="card-title" id="city4">City</h5>
+                                </div>
+                                <div class="col-3">
+                                    <img src="http://openweathermap.org/img/wn/10d.png" id="icon4" alt="weather">
+                                </div>
+                                <div class="col-3">
+                                    <p class="card-text" id="temprature4">Temperature</p>
+                                </div>
+                                <div class="col-3">
+                                    <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- City 5 and 6 -->
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row centerVertical">
+                                <div class="col-3">
+                                    <h5 class="card-title" id="city5">City</h5>
+                                </div>
+                                <div class="col-3">
+                                    <img src="http://openweathermap.org/img/wn/10d.png" id="icon5" alt="weather">
+                                </div>
+                                <div class="col-3">
+                                    <p class="card-text" id="temprature5">Temperature</p>
+                                </div>
+                                <div class="col-3">
+                                    <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row centerVertical">
+                                <div class="col-3">
+                                    <h5 class="card-title" id="city6">City</h5>
+                                </div>
+                                <div class="col-3">
+                                    <img src="http://openweathermap.org/img/wn/10d.png" id="icon6" alt="weather">
+                                </div>
+                                <div class="col-3">
+                                    <p class="card-text" id="temprature6">Temperature</p>
+                                </div>
+                                <div class="col-3">
+                                    <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </main>
 
     <!-- Footer -->
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex tex">
+    <footer class="mt-auto">
+        <div class="col-md-4 d-flex text-white">
             <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
         </div>
     </footer>
@@ -82,5 +198,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <!-- Custom JS -->
     <script src="js/script.js"></script>
+    <script src="js/weather.js"></script>
 </body>
 </html>

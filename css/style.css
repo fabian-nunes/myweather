@@ -1,3 +1,16 @@
+main {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)), url("https://images.wallpaperscraft.com/image/single/sun_sunset_sky_115688_2560x1080.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer {
+    background-color: #F7BD67;
+
+}
+
+
 .myHeader {
     background-color: #F7BD67;
     font-family: 'Balsamiq Sans';
@@ -13,7 +26,18 @@
     height: 50px;
 }
 
-footer {
-    background-color: #F7BD67;
+.favoriteSmall {
+    width: 35px;
+    height: 35px;
+}
 
+
+
+.centerVertical {
+    display: flex;
+    align-items: center;
+}
+
+.lessWhite {
+    color: #c3c3c3;
 }

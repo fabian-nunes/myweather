@@ -7,35 +7,22 @@ const coimbraID = '2740637';
 const oliveiraID = '2737038';
 const viseuID = '2732265'
 
-function getWeather(id) {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?id=${id}&appid=${key}&units=metric`)
-        .then(function (resp) {
-            return resp.json()
-        })
-        .then(function (data) {
-            drawWeather(data);
-        })
-        .catch(function () {
-            // catch any errors
+const idArray = [leiriaID, oliveiraID, lisboaID, portoID, coimbraID, viseuID];
+
+async function getWeather(id) {
+    const base = 'https://api.openweathermap.org/data/2.5/weather';
+    const query = `?id=${id}&units=metric&appid=${key}`;
+    const response = await fetch(base + query);
+    return await response.json();
+}
+
+$( document ).ready(function() {
+    for (let i = 0; i < idArray.length; i++) {
+        let weather = getWeather(idArray[i]);
+        weather.then(data => {
+            document.getElementById('city'+(i+1)).innerHTML = data.name;
+            document.getElementById('icon'+(i+1)).src = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
+            document.getElementById('temprature'+(i+1)).innerHTML = data.main.temp + '°C';
         });
-}
-
-function drawWeather(d) {
-    let celcius = Math.round(parseFloat(d.main.temp));
-    let fahrenheit = Math.round(((parseFloat(d.main.temp)) * 1.8) + 32);
-    let description = d.weather[0].description;
-
-    document.getElementById('description').innerHTML = description;
-    document.getElementById('temp').innerHTML = celcius + '&deg;';
-    document.getElementById('location').innerHTML = d.name;
-
-    if (description.indexOf('rain') > 0) {
-        document.body.className = 'rainy';
-    } else if (description.indexOf('cloud') > 0) {
-        document.body.className = 'cloudy';
-    } else if (description.indexOf('sunny') > 0) {
-        document.body.className = 'sunny';
-    } else {
-        document.body.className = 'clear';
     }
-}
+});
