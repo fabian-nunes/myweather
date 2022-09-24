@@ -1,0 +1,19 @@
+.myHeader {
+    background-color: #F7BD67;
+    font-family: 'Balsamiq Sans';
+    font-size: 32px;
+}
+
+.logo {
+    margin-right: 10px;
+}
+
+.favorite {
+    width: 50px;
+    height: 50px;
+}
+
+footer {
+    background-color: #F7BD67;
+
+}
