@@ -46,7 +46,7 @@
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <h1 class="fw-light text-white">My Weather</h1>
                     <p class="lead lessWhite">Enter your city name to get the weather</p>
-                    <input type="text" class="form-control" placeholder="Enter your city name" aria-label="Enter your city name" >
+                    <input type="text" class="form-control" placeholder="Enter your city name" aria-label="Enter your city name" id="weatherSearch">
                 </div>
             </div>
         </section>
@@ -54,135 +54,12 @@
         <section class="py-5 container">
             <h2 class="fw-light text-white">All Cities</h2>
             <hr class="text-white">
-            <!-- City 1 and 2 -->
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row centerVertical">
-                                <div class="col-3">
-                                    <h5 class="card-title" id="city1">City</h5>
-                                </div>
-                                <div class="col-3">
-                                    <img src="http://openweathermap.org/img/wn/10d.png" id="icon1" alt="weather">
-                                </div>
-                                <div class="col-3">
-                                    <p class="card-text" id="temprature1">Temperature</p>
-                                </div>
-                                <div class="col-3">
-                                    <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row centerVertical">
-                                <div class="col-3">
-                                    <h5 class="card-title" id="city2">City</h5>
-                                </div>
-                                <div class="col-3">
-                                    <img src="http://openweathermap.org/img/wn/10d.png" id="icon2" alt="weather">
-                                </div>
-                                <div class="col-3">
-                                    <p class="card-text" id="temprature2">Temperature</p>
-                                </div>
-                                <div class="col-3">
-                                    <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div id="weatherCards" class="overflow-auto">
+
             </div>
-            <!-- City 3 and 4 -->
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row centerVertical">
-                                <div class="col-3">
-                                    <h5 class="card-title" id="city3">City</h5>
-                                </div>
-                                <div class="col-3">
-                                    <img src="http://openweathermap.org/img/wn/10d.png" id="icon3" alt="weather">
-                                </div>
-                                <div class="col-3">
-                                    <p class="card-text" id="temprature3">Temperature</p>
-                                </div>
-                                <div class="col-3">
-                                    <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row centerVertical">
-                                <div class="col-3">
-                                    <h5 class="card-title" id="city4">City</h5>
-                                </div>
-                                <div class="col-3">
-                                    <img src="http://openweathermap.org/img/wn/10d.png" id="icon4" alt="weather">
-                                </div>
-                                <div class="col-3">
-                                    <p class="card-text" id="temprature4">Temperature</p>
-                                </div>
-                                <div class="col-3">
-                                    <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- City 5 and 6 -->
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row centerVertical">
-                                <div class="col-3">
-                                    <h5 class="card-title" id="city5">City</h5>
-                                </div>
-                                <div class="col-3">
-                                    <img src="http://openweathermap.org/img/wn/10d.png" id="icon5" alt="weather">
-                                </div>
-                                <div class="col-3">
-                                    <p class="card-text" id="temprature5">Temperature</p>
-                                </div>
-                                <div class="col-3">
-                                    <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row centerVertical">
-                                <div class="col-3">
-                                    <h5 class="card-title" id="city6">City</h5>
-                                </div>
-                                <div class="col-3">
-                                    <img src="http://openweathermap.org/img/wn/10d.png" id="icon6" alt="weather">
-                                </div>
-                                <div class="col-3">
-                                    <p class="card-text" id="temprature6">Temperature</p>
-                                </div>
-                                <div class="col-3">
-                                    <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Weather Cards Here -->
+
+        </section>
     </main>
 
     <!-- Footer -->

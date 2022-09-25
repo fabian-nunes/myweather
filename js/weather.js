@@ -17,12 +17,89 @@ async function getWeather(id) {
 }
 
 $( document ).ready(function() {
+    const cards = document.getElementById('weatherCards');
     for (let i = 0; i < idArray.length; i++) {
         let weather = getWeather(idArray[i]);
         weather.then(data => {
-            document.getElementById('city'+(i+1)).innerHTML = data.name;
-            document.getElementById('icon'+(i+1)).src = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
-            document.getElementById('temprature'+(i+1)).innerHTML = data.main.temp + '°C';
+            //Create <div class="row py-lg-5">
+            let row = document.createElement('div');
+            row.className = 'row py-lg-5 cardRow';
+            row.id = data.name;
+            cards.insertAdjacentElement('beforeend', row);
+
+            //Create <div class="col-lg-6 col-md-8 mx-auto">
+            let col = document.createElement('div');
+            col.className = 'col-lg-6 col-md-8 mx-auto';
+            row.insertAdjacentElement('beforeend', col);
+
+            //Create <div class="card">
+            let card = document.createElement('div');
+            card.className = 'card';
+            col.insertAdjacentElement('beforeend', card);
+
+            //Create <div class="card-body">
+            let cardBody = document.createElement('div');
+            cardBody.className = 'card-body';
+            card.insertAdjacentElement('beforeend', cardBody);
+
+            //Create  <div class="row centerVertical">
+            let rowInside = document.createElement('div');
+            rowInside.className = 'row centerVertical';
+            cardBody.insertAdjacentElement('beforeend', rowInside);
+
+            //Create <div class="col-3">
+            let colInside = document.createElement('div');
+            colInside.className = 'col-3';
+            rowInside.insertAdjacentElement('beforeend', colInside);
+
+            //Create <h5 class="card-title">City</h5>
+            let cardTitle = document.createElement('h5');
+            cardTitle.className = 'card-title';
+            cardTitle.innerHTML = data.name;
+            colInside.insertAdjacentElement('beforeend', cardTitle);
+
+            //Create <div class="col-3">
+            colInside = document.createElement('div');
+            colInside.className = 'col-3';
+            rowInside.insertAdjacentElement('beforeend', colInside);
+
+            //Create <img src="http://openweathermap.org/img/wn/10d.png" id="icon1" alt="weather">
+            let icon = document.createElement('img');
+            icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+            icon.alt = 'weather';
+            colInside.insertAdjacentElement('beforeend', icon);
+
+            //Create <div class="col-3">
+            colInside = document.createElement('div');
+            colInside.className = 'col-3';
+            rowInside.insertAdjacentElement('beforeend', colInside);
+
+            //Create <h5 class="card-title">Temperature</h5>
+            cardTitle = document.createElement('h5');
+            cardTitle.className = 'card-title';
+            cardTitle.innerHTML = `${data.main.temp}ºC`;
+            colInside.insertAdjacentElement('beforeend', cardTitle);
+
+            //Create <div class="col-3">
+            colInside = document.createElement('div');
+            colInside.className = 'col-3';
+            rowInside.insertAdjacentElement('beforeend', colInside);
+
+            //Create <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
+            let favorite = document.createElement('img');
+            favorite.src = 'images/favoriteNH.png';
+            favorite.className = 'favoriteSmall';
+            favorite.alt = 'favorite';
+            favorite.onmouseover = function() {hoverFavorite(this)};
+            favorite.onmouseout = function() {unhoverFavorite(this)};
+            colInside.insertAdjacentElement('beforeend', favorite);
         });
     }
+});
+
+$("#weatherSearch").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".cardRow").filter(function() {
+        $(this).toggle($(this).attr('id').toLowerCase().indexOf(value) > -1)
+    });
 });
