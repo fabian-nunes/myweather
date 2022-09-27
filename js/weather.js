@@ -52,10 +52,11 @@ $( document ).ready(function() {
             colInside.className = 'col-3';
             rowInside.insertAdjacentElement('beforeend', colInside);
 
-            //Create <h5 class="card-title">City</h5>
-            let cardTitle = document.createElement('h5');
+            //Create <a class="card-title" href='details.html?city=' + data.id;'>City</a>
+            let cardTitle = document.createElement('a');
             cardTitle.className = 'card-title';
             cardTitle.innerHTML = data.name;
+            cardTitle.href = 'details.html?city=' + data.id;
             colInside.insertAdjacentElement('beforeend', cardTitle);
 
             //Create <div class="col-3">

@@ -2,9 +2,93 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>My Weather</title>
+
+    <!--Custom Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+
+<nav class="navbar navbar-expand-lg myHeader">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo.png" alt="logo" class="logo">
+            My Weather
+        </a>
+
+        <a class="navbar-brand" href="#">
+            <img src="images/favoriteNH.png" class="favorite" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
+        </a>
+    </div>
+</nav>
+
+<!-- Main Section -->
+<main class="d-flex flex-column min-vh-100">
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5 text-white">
+            <div class="col-6">
+                <p>City</p>
+            </div>
+            <div class="col-6">
+                <p>Temperature</p>
+            </div>
+        </div>
+        <div class="row py-lg-5 text-white">
+            <div class="col-6">
+                <p>vento</p>
+            </div>
+            <div class="col-6">
+                <p>nuvens</p>
+            </div>
+        </div>
+        <div class="row py-lg-5 text-white">
+            <div class="col-6">
+                <p>humidade</p>
+            </div>
+            <div class="col-6">
+                <p>pressão</p>
+            </div>
+        </div>
+        <div class="row py-lg-5 text-white">
+            <div class="col-12">
+                <p>coordenadas</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 container">
+        <h2 class="fw-light text-white">All Cities</h2>
+        <hr class="text-white">
+        <div id="weatherCards" class="weatherCards">
+
+        </div>
+        <!-- Weather Cards Here -->
+
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="mt-auto">
+    <div class="text-center">
+        <span class="mb-3 mb-md-0 text-dark">MyWeather© 2022/2023 PWC Project PSI IPL, Fabian Nunes</span>
+    </div>
+</footer>
+
+<!-- JQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<!-- Bootstrap JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+<!-- Custom JS -->
+<script src="js/script.js"></script>
+<script src="js/weatherDetails.js"></script>
 </body>
 </html>
