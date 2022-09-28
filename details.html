@@ -33,34 +33,48 @@
 
 <!-- Main Section -->
 <main class="d-flex flex-column min-vh-100">
-    <section class="py-5 text-center container">
-        <div class="row py-lg-5 text-white">
-            <div class="col-6">
-                <p>City</p>
+    <section class="py-5 text-center container panel">
+        <div class="row py-lg-5 justify-content-center text-white">
+            <div class="col-2">
+                <h2 id="city">City</h2>
             </div>
-            <div class="col-6">
-                <p>Temperature</p>
+            <div class="col-2">
+                <img src="images/sunny.png" alt="sunny" id="weatherIcon" class="weatherIcon" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+            </div>
+        </div>
+        <div class="row py-lg-5 justify-content-center text-white">
+            <div class="col">
+                <h3 id="hourDate">hora</h3>
             </div>
         </div>
         <div class="row py-lg-5 text-white">
             <div class="col-6">
-                <p>vento</p>
+                <h4>Temprature: </h4>
+                <p id="temp">tempratura</p>
             </div>
             <div class="col-6">
-                <p>nuvens</p>
+                <h4>Wind Speed: </h4>
+                <p id="wind">vento</p>
             </div>
         </div>
         <div class="row py-lg-5 text-white">
             <div class="col-6">
-                <p>humidade</p>
+                <h4>Clouds: </h4>
+                <p id="clouds">nuvens</p>
             </div>
             <div class="col-6">
-                <p>pressão</p>
+                <h4>Humidity: </h4>
+                <p id="humidity">humidade</p>
             </div>
         </div>
         <div class="row py-lg-5 text-white">
-            <div class="col-12">
-                <p>coordenadas</p>
+            <div class="col-6">
+                <h4>Pressure: </h4>
+                <p id="pressure">pressão</p>
+            </div>
+            <div class="col-6">
+                <h4>Coordinates: </h4>
+                <p id="coord">coordenadas</p>
             </div>
         </div>
     </section>
