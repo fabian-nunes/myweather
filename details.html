@@ -80,12 +80,32 @@
     </section>
 
     <section class="py-5 container">
-        <h2 class="fw-light text-white">All Cities</h2>
+        <h2 class="fw-light text-white">Weather Forecast</h2>
         <hr class="text-white">
-        <div id="weatherCards" class="weatherCards">
+        <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active rowNav" id="5DayNav" onclick="changeTab(1)">5 Day Forecast</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link rowNav" id="3HourNav" onclick="changeTab(0)">3 Hour Forecast</a>
+            </li>
+        </ul>
 
+        <div id="5Day">
+            <div class="row forecastRow" id="5DayRow" >
+
+                <!-- 5 Day Forecast Cards here -->
+
+            </div>
         </div>
-        <!-- Weather Cards Here -->
+
+        <div id="3Hour" hidden>
+            <div class="row forecastRow" id="3HourRow">
+
+                <!-- 3 Hour Forecast Cards here -->
+
+            </div>
+        </div>
 
     </section>
 </main>

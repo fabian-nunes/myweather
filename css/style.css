@@ -58,3 +58,31 @@ footer {
     margin-top: 30px;
     padding: 10px;
 }
+
+.weatherImg {
+    width: 80px;
+    height: 80px;
+}
+
+.forecastCard {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 18rem;
+    padding: 0;
+    text-align: center;
+}
+
+.forecastRow {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.forecastRow> .col-3 {
+    display: inline-block;
+    margin: 10px;
+}
+
+.rowNav {
+    cursor: pointer;
+}
