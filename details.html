@@ -20,14 +20,14 @@
 
 <nav class="navbar navbar-expand-lg myHeader">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.html">
             <img src="images/logo.png" alt="logo" class="logo">
             My Weather
         </a>
 
-        <a class="navbar-brand" href="#">
-            <img src="images/favoriteNH.png" class="favorite" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
-        </a>
+        <div class="navbar-brand">
+            <button type="button" class="btn btn-link" id="metric" onclick="writeLocalStorageSystem('metric')">Metric</button>/<button type="button" class="btn btn-link" id="imperial" onclick="writeLocalStorageSystem('imperial')">Imperial</button>
+        </div>
     </div>
 </nav>
 
@@ -40,6 +40,9 @@
             </div>
             <div class="col-2">
                 <img src="images/sunny.png" alt="sunny" id="weatherIcon" class="weatherIcon" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+            </div>
+            <div class="col-2">
+                <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" id="favorite">
             </div>
         </div>
         <div class="row py-lg-5 justify-content-center text-white">

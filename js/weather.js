@@ -1,4 +1,4 @@
-const key = 'fa4902bd587104b68a518d9b60619cf8';
+
 
 const leiriaID = '2267095';
 const lisboaID = '2267057';
@@ -11,15 +11,23 @@ const idArray = [leiriaID, oliveiraID, lisboaID, portoID, coimbraID, viseuID];
 
 async function getWeather(id) {
     const base = 'https://api.openweathermap.org/data/2.5/weather';
-    const query = `?id=${id}&units=metric&appid=${key}`;
+    const query = `?id=${id}&units=${system}&appid=${key}`;
     const response = await fetch(base + query);
     return await response.json();
 }
 
 $( document ).ready(function() {
-    const cards = document.getElementById('weatherCards');
-    for (let i = 0; i < idArray.length; i++) {
-        let weather = getWeather(idArray[i]);
+
+    getWeatherCards(idArray, 'weatherCards');
+    getWeatherCards(favoriteArray, 'favoriteCards');
+});
+
+
+function getWeatherCards(data, row) {
+    const cards = document.getElementById(row);
+
+    for (let i = 0; i < data.length; i++) {
+        let weather = getWeather(data[i]);
         weather.then(data => {
             //Create <div class="row py-lg-5">
             let row = document.createElement('div');
@@ -78,7 +86,11 @@ $( document ).ready(function() {
             //Create <h5 class="card-title">Temperature</h5>
             cardTitle = document.createElement('h5');
             cardTitle.className = 'card-title';
-            cardTitle.innerHTML = `${data.main.temp}ºC`;
+            if (system === 'metric') {
+                cardTitle.innerHTML = data.main.temp + 'ºC';
+            } else {
+                cardTitle.innerHTML = data.main.temp + 'ºF';
+            }
             colInside.insertAdjacentElement('beforeend', cardTitle);
 
             //Create <div class="col-3">
@@ -88,15 +100,13 @@ $( document ).ready(function() {
 
             //Create <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
             let favorite = document.createElement('img');
-            favorite.src = 'images/favoriteNH.png';
+            changeFavoriteIcon(data.id, favorite);
             favorite.className = 'favoriteSmall';
             favorite.alt = 'favorite';
-            favorite.onmouseover = function() {hoverFavorite(this)};
-            favorite.onmouseout = function() {unhoverFavorite(this)};
             colInside.insertAdjacentElement('beforeend', favorite);
         });
     }
-});
+}
 
 $("#weatherSearch").on("keyup", function() {
     var value = $(this).val().toLowerCase();
@@ -104,3 +114,4 @@ $("#weatherSearch").on("keyup", function() {
         $(this).toggle($(this).attr('id').toLowerCase().indexOf(value) > -1)
     });
 });
+

@@ -1,5 +1,3 @@
-const key = 'fa4902bd587104b68a518d9b60619cf8';
-
 
 $(document).ready(function() {
     const query = window.location.search;
@@ -11,6 +9,9 @@ $(document).ready(function() {
         const city = document.getElementById('city');
         city.innerHTML = data.name;
 
+        let favorite = document.getElementById('favorite');
+        changeFavoriteIcon(data.id, favorite);
+
         //const country = document.getElementById('country');
         //country.innerHTML = data.sys.country;
 
@@ -18,7 +19,11 @@ $(document).ready(function() {
         hourDate.innerHTML = new Date(data.dt * 1000).toLocaleString();
 
         const temp = document.getElementById('temp');
-        temp.innerHTML = data.main.temp + 'ºC';
+        if (system === 'metric') {
+            temp.innerHTML = data.main.temp + 'ºC';
+        } else {
+            temp.innerHTML = data.main.temp + 'ºF';
+        }
 
         const humidity = document.getElementById('humidity');
         humidity.innerHTML = data.main.humidity + '%';
@@ -66,14 +71,14 @@ $(document).ready(function() {
 
 async function getWeatherForecast(id) {
     const base = 'https://api.openweathermap.org/data/2.5/forecast';
-    const query = `?id=${id}&units=metric&appid=${key}`;
+    const query = `?id=${id}&units=${system}&appid=${key}`;
     const response = await fetch(base + query);
     return await response.json();
 }
 
 async function getWeather(id) {
     const base = 'https://api.openweathermap.org/data/2.5/weather';
-    const query = `?id=${id}&units=metric&appid=${key}`;
+    const query = `?id=${id}&units=${system}&appid=${key}`;
     const response = await fetch(base + query);
     return await response.json();
 }
@@ -112,22 +117,12 @@ function createWeatherCard(element, row, id) {
 
     //Create <p>Temp: 20ºC</p>
     let temp = document.createElement('p');
-    temp.innerHTML = 'Temp: ' + element.main.temp + 'ºC';
-    card.insertAdjacentElement('beforeend', temp);
-}
-
-function changeTab(tab) {
-    if (tab === 0) {
-        document.getElementById('5Day').hidden = true;
-        document.getElementById('3Hour').hidden = false;
-        document.getElementById('5DayNav').className = 'nav-link rowNav';
-        document.getElementById('3HourNav').className = 'nav-link active rowNav';
+    if (system === 'metric') {
+        temp.innerHTML = 'Temp: ' + element.main.temp + 'ºC';
     } else {
-        document.getElementById('5Day').hidden = false;
-        document.getElementById('3Hour').hidden = true;
-        document.getElementById('5DayNav').className = 'nav-link active rowNav';
-        document.getElementById('3HourNav').className = 'nav-link rowNav';
+        temp.innerHTML = 'Temp: ' + element.main.temp + 'ºF';
     }
+    card.insertAdjacentElement('beforeend', temp);
 }
 
 function changeDay(city, dateFirst) {

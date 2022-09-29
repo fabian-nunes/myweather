@@ -91,3 +91,7 @@ footer {
     background-color: #c8c8c8;
     cursor: pointer;
 }
+
+.favoriteSmall:hover {
+    cursor: pointer;
+}
