@@ -1,5 +1,6 @@
 const key = 'fa4902bd587104b68a518d9b60619cf8';
 
+
 $(document).ready(function() {
     const query = window.location.search;
     const urlParams = new URLSearchParams(query);
@@ -46,13 +47,18 @@ $(document).ready(function() {
         const dateFirst = data.list[0].dt;
         data.list.forEach(element => {
             if (element.dt === dateFirst || element.dt === dateFirst + 86400 || element.dt === dateFirst + 86400 * 2 || element.dt === dateFirst + 86400 * 3 || element.dt === dateFirst + 86400 * 4) {
-                createWeatherCard(element, '5DayRow');
+                createWeatherCard(element, '5DayRow', city);
             }
 
-            weather.then(data => {
-                data.list.forEach(element => {
-                    createWeatherCard(element, '3HourRow');
-                });
+        });
+
+        weather.then(data => {
+            const dateFirst = new Date(data.list[0].dt * 1000).getDate();
+            data.list.forEach(element => {
+                let date = new Date(element.dt * 1000).getDate();
+                if (date === dateFirst) {
+                    createWeatherCard(element, '3HourRow', city);
+                }
             });
         });
     });
@@ -72,7 +78,7 @@ async function getWeather(id) {
     return await response.json();
 }
 
-function createWeatherCard(element, row) {
+function createWeatherCard(element, row, id) {
     //Create <div class="col-4">
     let col = document.createElement('div');
     col.className = 'col-3';
@@ -85,8 +91,13 @@ function createWeatherCard(element, row) {
 
     //Create <div class="class="card-header w-100"">
     let cardHeader = document.createElement('div');
-    cardHeader.className = 'card-header w-100';
+    cardHeader.className = 'card-header cardHeader w-100';
     cardHeader.innerHTML = new Date(element.dt * 1000).toLocaleString();
+    if (row === '5DayRow') {
+        cardHeader.onclick = function() {
+            changeDay(id, new Date(element.dt * 1000).getDate());
+        }
+    }
     card.insertAdjacentElement('beforeend', cardHeader);
 
     //Create <img src="http://openweathermap.org/img/w/03d.png" class="card-img-bottom weatherImg" alt="weather" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
@@ -109,12 +120,40 @@ function changeTab(tab) {
     if (tab === 0) {
         document.getElementById('5Day').hidden = true;
         document.getElementById('3Hour').hidden = false;
-        document.getElementById('5DayNav').className = 'nav-link';
-        document.getElementById('3HourNav').className = 'nav-link active';
+        document.getElementById('5DayNav').className = 'nav-link rowNav';
+        document.getElementById('3HourNav').className = 'nav-link active rowNav';
     } else {
         document.getElementById('5Day').hidden = false;
         document.getElementById('3Hour').hidden = true;
-        document.getElementById('5DayNav').className = 'nav-link active';
-        document.getElementById('3HourNav').className = 'nav-link';
+        document.getElementById('5DayNav').className = 'nav-link active rowNav';
+        document.getElementById('3HourNav').className = 'nav-link rowNav';
     }
+}
+
+function changeDay(city, dateFirst) {
+    let weather = getWeatherForecast(city);
+
+    weather.then(data => {
+        document.getElementById('3HourRow').replaceChildren();
+        data.list.forEach(element => {
+            let date = new Date(element.dt * 1000).getDate();
+            if (date === dateFirst) {
+                createWeatherCard(element, '3HourRow');
+            }
+        });
+    });
+
+    Swal.fire({
+        title: 'Changed Day!',
+        html: 'Now showing the weather for the day ' + dateFirst,
+        position: 'top',
+        timer: 2000,
+        timerProgressBar: true,
+
+    }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+            console.log('I was closed by the timer')
+        }
+    })
 }

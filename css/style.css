@@ -86,3 +86,8 @@ footer {
 .rowNav {
     cursor: pointer;
 }
+
+.cardHeader:hover {
+    background-color: #c8c8c8;
+    cursor: pointer;
+}
