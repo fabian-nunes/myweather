@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Weather</title>
 
     <!--Favicon-->
@@ -71,17 +72,20 @@
                 </li>
             </ul>
 
-            <div id="weatherCards" class="weatherCards">
-                <!-- Weather Cards Here -->
+            <div class="cardList">
+                <div id="weatherCards" class="weatherCards">
+                    <!-- Weather Cards Here -->
+                </div>
+
+                <div id="favoriteCards" class="weatherCards" hidden>
+                    <!-- Weather Cards Here -->
+                </div>
+
+                <div id="currentLocation" class="weatherCards" hidden>
+
+                </div>
             </div>
 
-            <div id="favoriteCards" class="weatherCards" hidden>
-                <!-- Weather Cards Here -->
-            </div>
-
-            <div id="currentLocation" class="weatherCards" hidden>
-
-            </div>
 
 
         </section>
@@ -89,8 +93,8 @@
 
     <!-- Footer -->
     <footer class="mt-auto">
-        <div class="text-center">
-            <span class="mb-3 mb-md-0 text-dark">MyWeather© 2022/2023 PWC Project PSI IPL, Fabian Nunes</span>
+        <div class="text-center centerFooter">
+            <span class="text-dark">MyWeather© 2022/2023 PWC Project PSI IPL, Fabian Nunes</span>
         </div>
     </footer>
 

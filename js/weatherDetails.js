@@ -17,7 +17,8 @@ $(document).ready(function() {
         //country.innerHTML = data.sys.country;
 
         const hourDate = document.getElementById('hourDate');
-        hourDate.innerHTML = new Date(data.dt * 1000).toLocaleString();
+        const date = new Date(data.dt * 1000);
+        hourDate.innerHTML = date.getHours() + ':' + date.getMinutes() + '-' + date.toLocaleString('default', { month: 'long' }) + ' ' + date.getDate();
 
         const temp = document.getElementById('temp');
         if (system === 'metric') {
@@ -97,12 +98,16 @@ function createWeatherCard(element, row, id) {
 
     //Create <div class="class="card-header w-100"">
     let cardHeader = document.createElement('div');
-    cardHeader.className = 'card-header cardHeader w-100';
-    cardHeader.innerHTML = new Date(element.dt * 1000).toLocaleString();
+
+    let date = new Date(element.dt * 1000);
+    cardHeader.innerHTML = date.getHours() + ':' + (date.getMinutes()<10?'0':'') + date.getMinutes() + '-' + date.toLocaleString('default', { month: 'long' }) + ' ' + date.getDate();
     if (row === '5DayRow') {
+        cardHeader.className = 'card-header cardHeader w-100';
         cardHeader.onclick = function() {
             changeDay(id, new Date(element.dt * 1000).getDate());
         }
+    } else {
+        cardHeader.className = 'card-header w-100';
     }
     card.insertAdjacentElement('beforeend', cardHeader);
 

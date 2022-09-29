@@ -10,7 +10,6 @@ footer {
     height: 50px;
     font-family: 'Balsamiq Sans';
 
-
 }
 
 
@@ -96,4 +95,61 @@ footer {
 
 .favoriteSmall:hover {
     cursor: pointer;
+}
+
+.cardList {
+    margin-top: 20px;
+}
+
+.centerFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+@media screen and (max-width: 1200px){
+    .cardRow {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .forecastRow {
+        justify-content: center;
+        align-content: center;
+    }
+
+
+    .forecastRow> .col-3 {
+        display: inline-block;
+        margin: 50px;
+
+    }
+}
+
+@media  screen and (max-width: 1000px) {
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    h4 {
+        font-size: 14px;
+    }
+
+
+    .forecastRow {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .forecastRow> .col-3 {
+        display: block;
+        margin-right: 0;
+
+    }
 }
