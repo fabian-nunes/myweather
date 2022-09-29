@@ -40,15 +40,28 @@ function changeTab(tab) {
         case 2:
             document.getElementById('weatherCards').hidden = false;
             document.getElementById('favoriteCards').hidden = true;
+            document.getElementById('currentLocation').hidden = true;
             document.getElementById('all').className = 'nav-link active rowNav';
             document.getElementById('fav').className = 'nav-link rowNav';
+            document.getElementById('current').className = 'nav-link rowNav';
         break;
         case 3:
             document.getElementById('weatherCards').hidden = true;
             document.getElementById('favoriteCards').hidden = false;
+            document.getElementById('currentLocation').hidden = true;
             document.getElementById('all').className = 'nav-link rowNav';
             document.getElementById('fav').className = 'nav-link active rowNav';
+            document.getElementById('current').className = 'nav-link rowNav';
         break;
+        case 4:
+            document.getElementById('weatherCards').hidden = true;
+            document.getElementById('favoriteCards').hidden = true;
+            document.getElementById('currentLocation').hidden = false;
+            document.getElementById('all').className = 'nav-link rowNav';
+            document.getElementById('fav').className = 'nav-link rowNav';
+            document.getElementById('current').className = 'nav-link active rowNav';
+        break;
+
     }
 
 }

@@ -16,18 +16,37 @@ async function getWeather(id) {
     return await response.json();
 }
 
+async function getWeatherByCoords(lat, lon) {
+    const base = 'https://api.openweathermap.org/data/2.5/weather';
+    const query = `?lat=${lat}&lon=${lon}&units=${system}&appid=${key}`;
+    const response = await fetch(base + query);
+    return await response.json();
+}
+
 $( document ).ready(function() {
 
     getWeatherCards(idArray, 'weatherCards');
     getWeatherCards(favoriteArray, 'favoriteCards');
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
+            getWeatherCards([0], 'currentLocation', true, [lat, lon]);
+        });
+    }
 });
 
 
-function getWeatherCards(data, row) {
+function getWeatherCards(data, row, current = false, [lat, lon] = [0, 0]) {
     const cards = document.getElementById(row);
+    let weather;
 
     for (let i = 0; i < data.length; i++) {
-        let weather = getWeather(data[i]);
+        if (current) {
+           weather = getWeatherByCoords(lat, lon);
+        } else {
+            weather = getWeather(data[i]);
+        }
         weather.then(data => {
             //Create <div class="row py-lg-5">
             let row = document.createElement('div');

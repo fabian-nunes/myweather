@@ -8,6 +8,7 @@ $(document).ready(function() {
     weather.then(data => {
         const city = document.getElementById('city');
         city.innerHTML = data.name;
+        document.title = data.name;
 
         let favorite = document.getElementById('favorite');
         changeFavoriteIcon(data.id, favorite);

@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <title>My Weather</title>
 
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     <!--Custom Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
-
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -56,10 +61,13 @@
             <hr class="text-white">
             <ul class="nav nav-pills justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link active rowNav" id="all" onclick="changeTab(2)">All Cities</a>
+                    <a class="nav-link active rowNav" id="all" onclick="changeTab(2)">Default Cities</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link rowNav" id="fav" onclick="changeTab(3)">Favorite Cities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link rowNav" id="current" onclick="changeTab(4)">Current Localtion</a>
                 </li>
             </ul>
 
@@ -69,6 +77,10 @@
 
             <div id="favoriteCards" class="weatherCards" hidden>
                 <!-- Weather Cards Here -->
+            </div>
+
+            <div id="currentLocation" class="weatherCards" hidden>
+
             </div>
 
 
