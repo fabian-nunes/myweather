@@ -1,5 +1,4 @@
-
-
+//ID from cities chosen by the author
 const leiriaID = '2267095';
 const lisboaID = '2267057';
 const portoID = '2735943';
@@ -7,8 +6,10 @@ const coimbraID = '2740637';
 const oliveiraID = '2737038';
 const viseuID = '2732265'
 
+//Array of the Ids of the cities
 const idArray = [leiriaID, oliveiraID, lisboaID, portoID, coimbraID, viseuID];
 
+//Get Request to the API to get a specific city
 async function getWeather(id) {
     const base = 'https://api.openweathermap.org/data/2.5/weather';
     const query = `?id=${id}&units=${system}&appid=${key}`;
@@ -16,6 +17,7 @@ async function getWeather(id) {
     return await response.json();
 }
 
+//Get Request to the API to get the current location
 async function getWeatherByCoords(lat, lon) {
     const base = 'https://api.openweathermap.org/data/2.5/weather';
     const query = `?lat=${lat}&lon=${lon}&units=${system}&appid=${key}`;
@@ -23,6 +25,7 @@ async function getWeatherByCoords(lat, lon) {
     return await response.json();
 }
 
+//OnLoad execute the function
 $( document ).ready(function() {
 
     getWeatherCards(idArray, 'weatherCards');
@@ -36,7 +39,7 @@ $( document ).ready(function() {
     }
 });
 
-
+//Create the cards with the weather information dynamically
 function getWeatherCards(data, row, current = false, [lat, lon] = [0, 0]) {
     const cards = document.getElementById(row);
     let weather;
@@ -127,6 +130,7 @@ function getWeatherCards(data, row, current = false, [lat, lon] = [0, 0]) {
     }
 }
 
+//Filter the cities by the search bar
 $("#weatherSearch").on("keyup", function() {
     var value = $(this).val().toLowerCase();
     $(".cardRow").filter(function() {

@@ -1,4 +1,4 @@
-
+//Onload function
 $(document).ready(function() {
     const query = window.location.search;
     const urlParams = new URLSearchParams(query);
@@ -18,7 +18,7 @@ $(document).ready(function() {
 
         const hourDate = document.getElementById('hourDate');
         const date = new Date(data.dt * 1000);
-        hourDate.innerHTML = date.getHours() + ':' + date.getMinutes() + '-' + date.toLocaleString('default', { month: 'long' }) + ' ' + date.getDate();
+        hourDate.innerHTML = date.getHours() + ':' + (date.getMinutes()<10?'0':'') + date.getMinutes() + '-' + date.toLocaleString('default', { month: 'long' }) + ' ' + date.getDate();
 
         const temp = document.getElementById('temp');
         if (system === 'metric') {
@@ -46,7 +46,7 @@ $(document).ready(function() {
         weatherIcon.title = data.weather[0].description;
 
 
-        weatherIcon.src = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
+        weatherIcon.src = 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png';
     });
 
     weather = getWeatherForecast(city);
@@ -71,6 +71,7 @@ $(document).ready(function() {
     });
 });
 
+//Get request to the API to get the forecast
 async function getWeatherForecast(id) {
     const base = 'https://api.openweathermap.org/data/2.5/forecast';
     const query = `?id=${id}&units=${system}&appid=${key}`;
@@ -78,6 +79,7 @@ async function getWeatherForecast(id) {
     return await response.json();
 }
 
+//Get request to the API to get the weather
 async function getWeather(id) {
     const base = 'https://api.openweathermap.org/data/2.5/weather';
     const query = `?id=${id}&units=${system}&appid=${key}`;
@@ -85,6 +87,7 @@ async function getWeather(id) {
     return await response.json();
 }
 
+//Create the weather card dynamically
 function createWeatherCard(element, row, id) {
     //Create <div class="col-4">
     let col = document.createElement('div');
@@ -114,7 +117,7 @@ function createWeatherCard(element, row, id) {
     //Create <img src="http://openweathermap.org/img/w/03d.png" class="card-img-bottom weatherImg" alt="weather" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
     let weatherImg = document.createElement('img');
     weatherImg.className = 'card-img-bottom weatherImg';
-    weatherImg.src = 'http://openweathermap.org/img/w/' + element.weather[0].icon + '.png';
+    weatherImg.src = 'http://openweathermap.org/img/wn/' + element.weather[0].icon + '@2x.png';
     weatherImg.alt = 'weather';
     weatherImg.title = element.weather[0].description;
     weatherImg.setAttribute('data-bs-toggle', 'tooltip');
@@ -131,6 +134,7 @@ function createWeatherCard(element, row, id) {
     card.insertAdjacentElement('beforeend', temp);
 }
 
+//Change the day of the 3 hour forecast cards
 function changeDay(city, dateFirst) {
     let weather = getWeatherForecast(city);
 
