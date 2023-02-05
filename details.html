@@ -20,6 +20,8 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -50,7 +52,7 @@
                 <img src="images/sunny.png" alt="sunny" id="weatherIcon" class="weatherIcon" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
             </div>
             <div class="col-2">
-                <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" id="favorite">
+                <i class="fa-solid fa-crown fav" id="favorite"></i>
             </div>
         </div>
         <div class="row py-lg-5 justify-content-center text-white">
@@ -86,6 +88,16 @@
             <div class="col-6">
                 <h4>Coordinates: </h4>
                 <p id="coord">coordenadas</p>
+            </div>
+        </div>
+        <div class="row py-lg-5 text-white">
+            <div class="col-6">
+                <h4>Sunrise: </h4>
+                <p id="rise">pressão</p>
+            </div>
+            <div class="col-6">
+                <h4>Sunset: </h4>
+                <p id="set">coordenadas</p>
             </div>
         </div>
     </section>

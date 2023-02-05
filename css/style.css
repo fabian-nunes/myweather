@@ -108,6 +108,12 @@ footer {
     height: 100%;
 }
 
+.fav:hover {
+    cursor: pointer;
+    color: gold;
+}
+
+
 @media screen and (max-width: 1200px){
     .cardRow {
         padding-top: 10px;

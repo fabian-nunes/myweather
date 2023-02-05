@@ -45,6 +45,13 @@ $(document).ready(function() {
         const weatherIcon = document.getElementById('weatherIcon');
         weatherIcon.title = data.weather[0].description;
 
+        const sunrise = document.getElementById('rise');
+        const sunriseDate = new Date(data.sys.sunrise * 1000);
+        sunrise.innerHTML = sunriseDate.getHours() + ':' + (sunriseDate.getMinutes()<10?'0':'') + sunriseDate.getMinutes();
+
+        const sunset = document.getElementById('set');
+        const sunsetDate = new Date(data.sys.sunset * 1000);
+        sunset.innerHTML = sunsetDate.getHours() + ':' + (sunsetDate.getMinutes()<10?'0':'') + sunsetDate.getMinutes();
 
         weatherIcon.src = 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png';
     });

@@ -30,6 +30,9 @@ $( document ).ready(function() {
 
     getWeatherCards(idArray, 'weatherCards');
     getWeatherCards(favoriteArray, 'favoriteCards');
+    //Put the total number of favorities in the h3
+    const total = document.getElementById('total');
+    total.innerHTML = "Total cities:" + favoriteArray.length;
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             let lat = position.coords.latitude;
@@ -121,10 +124,9 @@ function getWeatherCards(data, row, current = false, [lat, lon] = [0, 0]) {
             rowInside.insertAdjacentElement('beforeend', colInside);
 
             //Create <img src="images/favoriteNH.png" class="favoriteSmall" alt="favorite" onmouseover="hoverFavorite(this)" onmouseout="unhoverFavorite(this)">
-            let favorite = document.createElement('img');
+            let favorite = document.createElement('i');
             changeFavoriteIcon(data.id, favorite);
-            favorite.className = 'favoriteSmall';
-            favorite.alt = 'favorite';
+            favorite.className = 'fa-solid fa-crown fav';
             colInside.insertAdjacentElement('beforeend', favorite);
         });
     }

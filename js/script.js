@@ -103,7 +103,8 @@ function removeLocalStorageFavorites(id) {
 //Change Favorits Icon to Full or Empty
 function changeFavoriteIcon(id, favorite) {
     if (favoriteArray.includes(id)) {
-        favorite.src = 'images/favoriteH.png';
+        //Add color gold to favorite
+        favorite.style.color = 'gold';
         favorite.onclick = function () {
             removeLocalStorageFavorites(id);
         }
