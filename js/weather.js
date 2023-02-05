@@ -5,9 +5,13 @@ const portoID = '2735943';
 const coimbraID = '2740637';
 const oliveiraID = '2737038';
 const viseuID = '2732265'
+const aveiroID = '2742611';
+const quarteiraID = '2264299';
+const seiaID = '2734215';
+const tomarID = '2262644';
 
 //Array of the Ids of the cities
-const idArray = [leiriaID, oliveiraID, lisboaID, portoID, coimbraID, viseuID];
+const idArray = [leiriaID, oliveiraID, lisboaID, portoID, coimbraID, viseuID, aveiroID, quarteiraID, seiaID, tomarID];
 
 //Get Request to the API to get a specific city
 async function getWeather(id) {
@@ -56,7 +60,11 @@ function getWeatherCards(data, row, current = false, [lat, lon] = [0, 0]) {
         weather.then(data => {
             //Create <div class="row py-lg-5">
             let row = document.createElement('div');
-            row.className = 'row py-lg-5 cardRow';
+            if (i <= 5) {
+                row.className = 'row py-lg-5 cardRow';
+            } else {
+                row.className = 'row py-lg-5 cardRow hiddenC';
+            }
             row.id = data.name;
             cards.insertAdjacentElement('beforeend', row);
 
@@ -130,6 +138,7 @@ function getWeatherCards(data, row, current = false, [lat, lon] = [0, 0]) {
             colInside.insertAdjacentElement('beforeend', favorite);
         });
     }
+
 }
 
 //Filter the cities by the search bar

@@ -115,3 +115,29 @@ function changeFavoriteIcon(id, favorite) {
         }
     }
 }
+
+function view(val) {
+    if (val == 0) {
+        let cards = document.getElementById('weatherCards');
+        for (let i = 0; i < cards.children.length; i++) {
+            //if contains class hiddenC then remove it
+            if (cards.children[i].classList.contains('hiddenC')) {
+                cards.children[i].classList.remove('hiddenC');
+            }
+        }
+
+        document.getElementById('viewMore').hidden = true;
+        document.getElementById('viewLess').hidden = false;
+    } else {
+        let cards = document.getElementById('weatherCards');
+        for (let i = 0; i < cards.children.length; i++) {
+            //if contains class hiddenC then remove it
+            if (i > 7) {
+                cards.children[i].classList.add('hiddenC');
+            }
+        }
+        document.getElementById('viewMore').hidden = false;
+        document.getElementById('viewLess').hidden = true;
+    }
+
+}

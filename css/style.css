@@ -113,6 +113,9 @@ footer {
     color: gold;
 }
 
+.hiddenC {
+    display: none;
+}
 
 @media screen and (max-width: 1200px){
     .cardRow {
